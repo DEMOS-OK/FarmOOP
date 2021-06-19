@@ -4,6 +4,7 @@ namespace Classes\God;
 
 use Classes\Animals\Chicken;
 use Classes\Animals\Cow;
+use Classes\Config;
 
 /**
  * Класс Бога. Рождает животных
@@ -20,13 +21,14 @@ class God
     }
 
     /**
-     * Порождает необходимое количество животных
-     * @param int $chickensCount - количество порождаемых куриц
-     * @param int $cowsCount - количество порождаемых коров
+     * Порождает животных
      * @return array
      */
-    public function createAnimals($chickensCount, $cowsCount)
+    public function createAnimals()
     {
+        $cowsCount = Config::get('cows_count');
+        $chickensCount = Config::get('chickens_count');
+        
         $animals = [
             'chickens' => $this->createChickens($chickensCount),
             'cows'     => $this->createCows($cowsCount),

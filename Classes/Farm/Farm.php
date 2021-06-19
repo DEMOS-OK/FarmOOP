@@ -4,7 +4,6 @@ namespace Classes\Farm;
 
 use Classes\Collectors\Collector;
 use Classes\God\God;
-use Classes\Config;
 
 class Farm
 {
@@ -51,9 +50,7 @@ class Farm
     public function work()
     {
         //Создаём животных
-        $cowsCount = Config::get('cows_count');
-        $chickensCount = Config::get('chickens_count');
-        $animals = $this->god->createAnimals($cowsCount, $chickensCount);
+        $animals = $this->god->createAnimals();
 
         //Даём каждому животному уникальный идентификатор
         $this->setAnimalIds($animals);
